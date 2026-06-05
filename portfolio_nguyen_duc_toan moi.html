@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Đức Toàn — Portfolio Công Nghệ Số & AI</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F9F6F0;
+  --surface: #FFFFFF;
+  --ink: #1A1612;
+  --ink-2: #5C5249;
+  --ink-3: #9E968F;
+  --accent: #C4541A;
+  --accent-light: #F5E8DF;
+  --accent-2: #2B4C7E;
+  --accent-2-light: #E4EBF5;
+  --border: #E0D9D0;
+  --border-light: #EDE9E2;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(249,246,240,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0 2rem;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex; gap: 0; list-style: none;
+}
+
+.nav-links a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8rem 4rem 5rem;
+  position: relative;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  max-width: 16ch;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-meta {
+  display: flex; gap: 3rem; align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.hero-bio {
+  max-width: 44ch;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.hero-tags {
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 0.2rem 0.7rem;
+  display: inline-block;
+}
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; right: 4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  writing-mode: vertical-rl;
+  display: flex; align-items: center; gap: 1rem;
+}
+
+.hero-scroll::before {
+  content: '';
+  width: 1px; height: 60px;
+  background: var(--border);
+  display: block;
+}
+
+/* SECTION BASE */
+section {
+  padding: 6rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1; max-width: 60px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ABOUT SECTION */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+  align-items: start;
+}
+
+.about-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.about-text { color: var(--ink-2); line-height: 1.85; }
+.about-text + .about-text { margin-top: 1rem; }
+
+.goals-list { list-style: none; }
+
+.goals-list li {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-light);
+  display: grid; grid-template-columns: 2rem 1fr; gap: 1rem;
+  align-items: start;
+}
+
+.goals-list li:last-child { border-bottom: 1px solid var(--border-light); }
+
+.goal-num {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--accent);
+  line-height: 1.7;
+}
+
+.goal-text { color: var(--ink-2); font-size: 0.95rem; line-height: 1.7; }
+.goal-title { font-weight: 500; color: var(--ink); }
+
+/* PROJECTS GRID */
+.projects-intro {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+
+.projects-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1.5px solid var(--border);
+}
+
+.project-card {
+  background: var(--surface);
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none; color: inherit;
+  display: block;
+}
+
+.project-card:hover { background: var(--accent-light); }
+
+.project-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-num { color: var(--accent); }
+
+.project-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-skills {
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
+}
+
+.skill-chip {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--ink-2);
+}
+
+/* DETAIL PANELS */
+.detail-panel {
+  display: none;
+  grid-column: 1 / -1;
+  background: var(--surface);
+  padding: 3rem 2.5rem;
+  border-top: 2px solid var(--accent);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-panel.open { display: block; }
+
+.detail-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+}
+
+.detail-heading {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+.detail-section { margin-bottom: 2rem; }
+
+.detail-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.detail-text { color: var(--ink-2); font-size: 0.9rem; line-height: 1.8; }
+
+.result-list { list-style: none; }
+
+.result-list li {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  padding: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.result-list li::before {
+  content: '✓';
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.lesson-list { list-style: none; counter-reset: lessons; }
+
+.lesson-list li {
+  counter-increment: lessons;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-light);
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.lesson-list li::before {
+  content: counter(lessons);
+  position: absolute; left: 0;
+  font-family: var(--serif);
+  color: var(--ink-3);
+  font-size: 1rem;
+}
+
+.lesson-list li:last-child { border-bottom: 1px solid var(--border-light); }
+
+.close-btn {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  cursor: pointer;
+  border: none; background: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+.close-btn:hover { color: var(--accent); }
+
+/* DOWNLOAD BUTTONS */
+.download-btn {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.65rem 1.3rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: var(--sans);
+}
+
+.download-btn:hover {
+  background: #A83A14;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(196, 84, 26, 0.25);
+}
+
+.download-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.file-info {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+/* PRINCIPLES SECTION */
+.principles-section { background: var(--ink); color: #F9F6F0; }
+.principles-section .section-label { color: #C4A882; }
+.principles-section .section-label::after { background: #C4A882; }
+
+.principles-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  color: #F9F6F0;
+}
+
+.principles-sub {
+  color: #9E896E;
+  margin-bottom: 3rem;
+  max-width: 50ch;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: #2C2620;
+}
+
+.principle-card {
+  background: #1A1612;
+  padding: 2rem 1.5rem;
+}
+
+.principle-num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: #3D3429;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.principle-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C4A882;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.principle-text {
+  font-size: 0.88rem;
+  color: #9E896E;
+  line-height: 1.7;
+}
+
+/* REFLECTION SECTION */
+.reflection-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem;
+  align-items: start;
+}
+
+.reflection-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+.growth-block {
+  margin-bottom: 2rem;
+}
+
+.growth-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.growth-before {
+  font-size: 0.9rem;
+  color: var(--ink-3);
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--border);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.growth-after {
+  font-size: 0.9rem;
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-light);
+}
+
+.skills-table { width: 100%; border-collapse: collapse; }
+
+.skills-table th {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-align: left;
+  padding: 0 0 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-table td {
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.skills-table td:last-child {
+  text-align: right;
+}
+
+.stars { color: var(--accent); letter-spacing: -2px; font-size: 0.8rem; }
+
+/* QUOTE BLOCK */
+.quote-section {
+  background: var(--accent);
+  color: #fff;
+  padding: 5rem 4rem;
+  border-bottom: none;
+}
+
+.quote-text {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.3;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-style: italic;
+}
+
+.quote-source {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: #9E896E;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: #F9F6F0;
+}
+
+.footer-info { font-size: 0.8rem; line-height: 1.8; }
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .reflection-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-scroll { display: none; }
+  .quote-section { padding: 3.5rem 1.5rem; }
+  footer { padding: 2.5rem 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Nguyễn Đức Toàn</a>
+  <ul class="nav-links">
+    <li><a href="#about">Giới thiệu</a></li>
+    <li><a href="#projects">Dự án</a></li>
+    <li><a href="#principles">Nguyên tắc</a></li>
+    <li><a href="#reflection">Reflection</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Portfolio học thuật · Học kỳ 2024–2025</div>
+  <h1>Hành Trình Khám Phá<br><em>Công Nghệ Số</em><br>& Trí Tuệ Nhân Tạo</h1>
+  <div class="hero-meta">
+    <p class="hero-bio">Sinh viên năm nhất, Trí tuệ nhân tạo tại UET–VNU Hà Nội. Môn học "Nhập môn Công nghệ Số và Ứng dụng Trí tuệ Nhân Tạo" — 6 dự án, 15 tuần, một sự trưởng thành hoàn toàn.</p>
+    <div class="hero-tags">
+      <span class="tag">UET · VNU Hà Nội</span>
+      <span class="tag">AI</span>
+      <span class="tag">Năm nhất · 2025-2026</span>
+    </div>
+  </div>
+  <div class="hero-scroll">Cuộn xuống</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Về tôi</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-heading fade-in">Không chỉ học kỹ năng — mà học cách suy nghĩ</h2>
+      <p class="about-text fade-in">Tôi là Nguyễn Đức Toàn, sinh viên chuyên ngành Trí tuệ nhân tạo. Portfolio này ghi lại hành trình học tập toàn diện qua môn "Nhập môn Công nghệ Số và Ứng dụng Trí tuệ nhân tạo".</p>
+      <p class="about-text fade-in" style="margin-top:1rem;">Với niềm đam mê khám phá cách công nghệ thay đổi xã hội và cam kết sử dụng AI một cách có trách nhiệm, tôi đã hoàn thành 6 dự án đa chiều — từ quản lý dữ liệu, nghiên cứu học thuật, đến sáng tạo nội dung số và đạo đức AI.</p>
+    </div>
+    <div class="fade-in">
+      <p style="font-size:0.85rem; color:var(--ink-3); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1.25rem;">Ba mục tiêu cá nhân</p>
+      <ul class="goals-list">
+        <li>
+          <span class="goal-num">I</span>
+          <div class="goal-text"><span class="goal-title">Tư duy kỹ thuật thực tiễn.</span> Không chỉ hiểu lý thuyết mà còn biết cách áp dụng công nghệ để giải quyết vấn đề thực tế.</div>
+        </li>
+        <li>
+          <span class="goal-num">II</span>
+          <div class="goal-text"><span class="goal-title">Năng lực phân tích phản biện.</span> Luôn đặt câu hỏi "Nguồn gốc là gì?", "Có bias nào không?", "Nó ảnh hưởng đến ai?"</div>
+        </li>
+        <li>
+          <span class="goal-num">III</span>
+          <div class="goal-text"><span class="goal-title">Cẩm nang đạo đức AI cá nhân.</span> Công nghệ không trung lập. Mỗi quyết định thiết kế đều mang theo những giá trị.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding-left:4rem; padding-right:4rem;">
+  <div class="section-label">Sáu dự án</div>
+  <div class="projects-intro">
+    <h2 class="projects-heading fade-in">Bằng chứng của quá trình</h2>
+    <p style="max-width:36ch; color:var(--ink-3); font-size:0.9rem;" class="fade-in">Nhấn vào từng bài để xem chi tiết nội dung, kết quả và bài học rút ra.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- BÀI 1 -->
+    <a class="project-card" onclick="toggleDetail(event,'d1')">
+      <div class="project-num">01</div>
+      <div class="project-title">Máy Tính & Các Thiết Bị Ngoại Vi</div>
+      <div class="project-desc">Xây dựng hệ thống cấu trúc thư mục 3–4 tầng và quy chuẩn đặt tên tệp tin quốc tế.</div>
+      <div class="project-skills">
+        <span class="skill-chip">Quản lý tệp tin</span>
+        <span class="skill-chip">Naming convention</span>
+        <span class="skill-chip">Tổ chức dữ liệu</span>
+      </div>
+    </a>
+
+    <!-- BÀI 2 -->
+    <a class="project-card" onclick="toggleDetail(event,'d2')">
+      <div class="project-num">02</div>
+      <div class="project-title">Khai Thác Dữ Liệu & Đánh Giá Thông Tin</div>
+      <div class="project-desc">Nắm vững 5 toán tử tìm kiếm nâng cao và xây dựng khung đánh giá 6 tiêu chí.</div>
+      <div class="project-skills">
+        <span class="skill-chip">site: filetype:</span>
+        <span class="skill-chip">Đánh giá phê phán</span>
+        <span class="skill-chip">Google Scholar</span>
+      </div>
+    </a>
+
+    <!-- BÀI 3 -->
+    <a class="project-card" onclick="toggleDetail(event,'d3')">
+      <div class="project-num">03</div>
+      <div class="project-title">Tổng Quan Về Trí Tuệ Nhân Tạo</div>
+      <div class="project-desc">So sánh prompt gốc vs cải tiến, chứng minh chất lượng tăng 5–10 lần qua Prompt Engineering.</div>
+      <div class="project-skills">
+        <span class="skill-chip">Prompt Engineering</span>
+        <span class="skill-chip">LLM cơ chế</span>
+        <span class="skill-chip">ChatGPT</span>
+      </div>
+    </a>
+
+    <!-- DETAIL PANEL ROW 1 -->
+    <div class="detail-panel" id="d1">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 1 — Máy Tính & Ngoại Vi</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Giới thiệu</div>
+            <p class="detail-text">Bài tập tưởng chừng đơn giản — chỉ là "tổ chức thư mục và đặt tên tệp tin" — nhưng lại chứa đựng một trong những kỹ năng cơ bản nhất của người làm việc trong lĩnh vực công nghệ: khả năng xây dựng hệ thống sạch, logic, và có thể mở rộng.</p>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Quy chuẩn đặt tên tệp</div>
+            <p class="detail-text" style="font-family:monospace; background:var(--bg); padding:0.75rem; border-radius:4px; font-size:0.85rem;">[Loại]_[Ngày]_[Mô_Tả]_v[Phiên_Bản].[ext]<br><br>Ví dụ:<br>RPT_20250605_Bài1_Cấu_Trúc_v1.0.pdf</p>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Kết quả đạt được</div>
+            <ul class="result-list">
+              <li>Cấu trúc thư mục 3–4 tầng, logic và có thể mở rộng</li>
+              <li>Quy chuẩn áp dụng nhất quán trên tất cả dự án</li>
+              <li>Thời gian tìm tệp giảm từ 5–10 phút xuống &lt;30 giây</li>
+              <li>Cải thiện khả năng cộng tác nhóm đáng kể</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bài học rút ra</div>
+            <ol class="lesson-list">
+              <li><strong>Chi tiết là cách thể hiện chuyên nghiệp.</strong> Cách đặt tên tệp hay tổ chức thư mục không bao giờ là "không quan trọng".</li>
+              <li><strong>Hệ thống phải thiết kế cho tương lai.</strong> Khi bạn có 100 dự án, bạn vẫn có thể quản lý được không?</li>
+              <li><strong>Tiêu chuẩn hóa = Giải phóng thời gian.</strong> Một khi hệ thống đã rõ ràng, không cần lãng phí tâm trí vào "tệp này để ở đâu?"</li>
+              <li><strong>Công cụ không phải mục tiêu, mà là phương tiện.</strong> Windows, Mac hay Linux — nguyên tắc tổ chức vẫn giống nhau.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d1')">✕ Đóng lại</button>
+    </div>
+
+    <div class="detail-panel" id="d2">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 2 — Tìm Kiếm & Đánh Giá Thông Tin</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Chiến lược tìm kiếm</div>
+            <p class="detail-text">Từ 2.5 tỷ kết quả Google xuống còn 200 kết quả chính xác bằng cách kết hợp 5 toán tử: <code>site:</code>, <code>filetype:</code>, <code>intitle:</code>, <code>inurl:</code>, và toán tử logic AND/OR/-.</p>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Khung đánh giá 6 tiêu chí</div>
+            <ul class="result-list">
+              <li>Tác giả — có chuyên môn không?</li>
+              <li>Cơ quan xuất bản — uy tín không?</li>
+              <li>Phương pháp — có bằng chứng không?</li>
+              <li>Trích dẫn — bao nhiêu người tham khảo?</li>
+              <li>Tính cập nhật — còn liên quan không?</li>
+              <li>Bias — tác giả có lợi ích gì?</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Kết quả</div>
+            <ul class="result-list">
+              <li>Bài luận 800–1000 từ, 11 tài liệu uy tín cao</li>
+              <li>Thời gian tìm tài liệu giảm từ 2–3 giờ xuống 30–45 phút</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bài học rút ra</div>
+            <ol class="lesson-list">
+              <li><strong>Tìm kiếm là một nghệ thuật.</strong> Thay vì dùng cùng một cách cho tất cả, cần thích ứng chiến lược theo loại tài liệu.</li>
+              <li><strong>Đánh giá quan trọng hơn tìm kiếm.</strong> Dễ tìm 1 triệu kết quả, khó chọn 10 kết quả tốt nhất.</li>
+              <li><strong>Nguồn tin không trung lập.</strong> Paper được tài trợ bởi công ty A sẽ có xu hướng "khen" công nghệ của A.</li>
+              <li><strong>Google Scholar ≠ Google thường ngày.</strong> Nếu chỉ dùng Google.com, bỏ lỡ 90% tài liệu học thuật chất lượng.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="download-group">
+        <a href="Bai2_ToiUuHoaCongCuSo.pdf" download class="download-btn">⬇ Tải Bài 2 (PDF)</a>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d2')">✕ Đóng lại</button>
+    </div>
+
+    <div class="detail-panel" id="d3">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 3 — Trí Tuệ Nhân Tạo & Prompt Engineering</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Cơ chế LLM</div>
+            <p class="detail-text">AI hoạt động dựa trên dự đoán từ tiếp theo theo xác suất, không phải quy tắc cứng. Chất lượng output phụ thuộc rất nhiều vào chất lượng input (prompt).</p>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">6 kỹ thuật Prompt Engineering</div>
+            <ul class="result-list">
+              <li>Đặt vai trò (Role) — "Bạn là chuyên gia..."</li>
+              <li>Chỉ định ngữ cảnh (Context)</li>
+              <li>Yêu cầu rõ ràng (Clear Task)</li>
+              <li>Định dạng đầu ra (Output Format)</li>
+              <li>Ví dụ minh họa (Examples)</li>
+              <li>Ràng buộc (Constraints)</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bài học rút ra</div>
+            <ol class="lesson-list">
+              <li><strong>Prompt Engineering là kỹ năng giao tiếp.</strong> Không cần biết xây dựng LLM, chỉ cần biết "nói chuyện" với nó.</li>
+              <li><strong>Chi tiết quyết định chất lượng.</strong> Thêm vài từ (vai trò, ví dụ, ràng buộc) có thể tốt gấp 10 lần.</li>
+              <li><strong>AI cần được hướng dẫn rõ ràng.</strong> Nó không có "trực giác con người".</li>
+              <li><strong>Prompt tốt tiết kiệm thời gian chỉnh sửa.</strong> Đầu tư vào prompt = tiết kiệm thời gian sau này.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="download-group">
+        <a href="Bai3_TimKiemDanhGiaThongTin.docx" download class="download-btn">⬇ Tải Bài 3 (DOCX)</a>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d3')">✕ Đóng lại</button>
+    </div>
+
+    <!-- BÀI 4 -->
+    <a class="project-card" onclick="toggleDetail(event,'d4')">
+      <div class="project-num">04</div>
+      <div class="project-title">Giao Tiếp & Hợp Tác Số</div>
+      <div class="project-desc">Tích hợp 4 công cụ (Trello + Slack + Drive + Word) và giải quyết 3 vấn đề thực tế nhóm.</div>
+      <div class="project-skills">
+        <span class="skill-chip">Trello</span>
+        <span class="skill-chip">Slack</span>
+        <span class="skill-chip">Google Drive</span>
+        <span class="skill-chip">Quản lý dự án</span>
+      </div>
+    </a>
+
+    <!-- BÀI 5 -->
+    <a class="project-card" onclick="toggleDetail(event,'d5')">
+      <div class="project-num">05</div>
+      <div class="project-title">Sáng Tạo Nội Dung Số</div>
+      <div class="project-desc">Sản xuất tiểu sử Wes Anderson với ChatGPT, DALL-E, Canva — minh bạch tỷ lệ đóng góp AI.</div>
+      <div class="project-skills">
+        <span class="skill-chip">ChatGPT</span>
+        <span class="skill-chip">DALL-E 3</span>
+        <span class="skill-chip">Canva AI</span>
+      </div>
+    </a>
+
+    <!-- BÀI 6 -->
+    <a class="project-card" onclick="toggleDetail(event,'d6')">
+      <div class="project-num">06</div>
+      <div class="project-title">An Toàn & Liêm Chính Học Thuật</div>
+      <div class="project-desc">Xây dựng bộ 7 nguyên tắc cá nhân cho việc sử dụng AI có trách nhiệm và minh bạch.</div>
+      <div class="project-skills">
+        <span class="skill-chip">Đạo đức AI</span>
+        <span class="skill-chip">Academic integrity</span>
+        <span class="skill-chip">7 nguyên tắc</span>
+      </div>
+    </a>
+
+    <!-- DETAIL PANELS ROW 2 -->
+    <div class="detail-panel" id="d4">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 4 — Giao Tiếp & Hợp Tác Số</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Hệ sinh thái công cụ</div>
+            <p class="detail-text"><strong>Trello</strong> = Trung tâm kiểm soát. <strong>Slack</strong> = Hệ thần kinh. <strong>Drive</strong> = Kho lưu trữ. <strong>Word Online</strong> = Bàn làm việc chung. Bốn công cụ tích hợp seamlessly để giảm phân mảnh thông tin.</p>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Ba vấn đề đã giải quyết</div>
+            <ul class="result-list">
+              <li><strong>Information overload</strong> — tạo kênh #only-files riêng cho tài liệu</li>
+              <li><strong>Dependency delays</strong> — automation Trello → Slack notifications</li>
+              <li><strong>Data loss</strong> — Track Changes + Version History → khôi phục 30 giây</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Chỉ số đạt được</div>
+            <ul class="result-list">
+              <li>Cập nhật trạng thái 5 lần/tuần (+67% tiêu chuẩn)</li>
+              <li>Tương tác Slack 18 lần/tuần</li>
+              <li>100% task có check-list đầy đủ, không trễ deadline</li>
+              <li>Hiệu suất nhóm từ 60–70% lên 85–90%</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bài học rút ra</div>
+            <ol class="lesson-list">
+              <li><strong>Lãnh đạo số = Giải quyết vấn đề trước khi xảy ra.</strong></li>
+              <li><strong>Automation giải phóng tâm trí</strong> cho những việc sáng tạo hơn.</li>
+              <li><strong>Transparency tạo tin tưởng</strong> — minh bạch sẽ tự quản lý nhóm.</li>
+              <li><strong>Công cụ tốt = Đơn giản và rõ ràng,</strong> không phải "nhiều tính năng".</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="download-group">
+        <a href="Bai4_TimKiemDanhGiaTTHocThanh.pdf" download class="download-btn">⬇ Tải Bài 4 (PDF)</a>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d4')">✕ Đóng lại</button>
+    </div>
+
+    <div class="detail-panel" id="d5">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 5 — Sáng Tạo Nội Dung Số</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Quy trình 3 giai đoạn</div>
+            <ul class="result-list">
+              <li><strong>ChatGPT</strong> — Phác thảo nội dung (AI 45%, Tôi 55%)</li>
+              <li><strong>DALL-E 3</strong> — Tạo hình ảnh (AI 25%, Tôi 75% hậu kỳ)</li>
+              <li><strong>Canva</strong> — Thiết kế layout (AI 0%, Tôi 100%)</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Sản phẩm</div>
+            <p class="detail-text">Tiểu sử đạo diễn Wes Anderson: 2500+ từ, minh họa nghệ thuật pastel, layout magazine. Mọi tỷ lệ đóng góp AI đều được công khai minh bạch.</p>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bài học rút ra</div>
+            <ol class="lesson-list">
+              <li><strong>AI là công cụ, không phải thay thế.</strong> Ranh giới giữa hỗ trợ và lạm dụng.</li>
+              <li><strong>Tỷ lệ đóng góp phụ thuộc bản chất tác vụ,</strong> không phải cố định 50-50.</li>
+              <li><strong>Sáng tạo = Tạo ra + Sửa chữa.</strong> Không ai (kể cả AI) tạo ra tác phẩm hoàn hảo từ lần đầu.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="download-group">
+        <a href="Bai5_SangTaoNoiDungSo.pdf" download class="download-btn">⬇ Tải Bài 5 (PDF)</a>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d5')">✕ Đóng lại</button>
+    </div>
+
+    <div class="detail-panel" id="d6">
+      <div class="detail-grid">
+        <div>
+          <h3 class="detail-heading">Bài 6 — An Toàn & Liêm Chính Học Thuật</h3>
+          <div class="detail-section">
+            <div class="detail-section-title">Ba vấn đề đạo đức phân tích</div>
+            <ul class="result-list">
+              <li>Ranh giới "hỗ trợ" vs "gian lận" học thuật</li>
+              <li>Quyền sở hữu trí tuệ & trích dẫn AI</li>
+              <li>Tác động Cognitive Offloading đến học tập</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="detail-section">
+            <div class="detail-section-title">Bộ 7 nguyên tắc cá nhân</div>
+            <ol class="lesson-list">
+              <li><strong>Minh bạch tuyệt đối</strong> — luôn khai báo AI đã dùng</li>
+              <li><strong>AI là công cụ, tôi là tác giả</strong> — ý tưởng trung tâm phải là của tôi</li>
+              <li><strong>Kiểm chứng trước khi tin</strong> — không dùng thông tin AI chưa xác minh</li>
+              <li><strong>Bảo vệ quyền riêng tư</strong> — không đưa dữ liệu cá nhân vào AI</li>
+              <li><strong>Luyện tập tư duy độc lập</strong> — tự làm bản nháp trước</li>
+              <li><strong>Dùng AI để học sâu hơn</strong> — AI là Socratic tutor, không phải answer bot</li>
+              <li><strong>Cập nhật liên tục chuẩn mực</strong> — đạo đức AI evolve theo thời gian</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="download-group">
+        <a href="Bai6_AnToanLiemChinhHocThanh.pdf" download class="download-btn">⬇ Tải Bài 6 (PDF)</a>
+      </div>
+      <button class="close-btn" onclick="closeDetail('d6')">✕ Đóng lại</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRINCIPLES (DARK) -->
+<section id="principles" class="principles-section">
+  <div class="section-label">Nguyên tắc AI</div>
+  <h2 class="principles-heading">Bộ 7 Nguyên Tắc Cá Nhân</h2>
+  <p class="principles-sub">Không phải "tuân thủ vì sợ bị phạt", mà là "làm đúng vì tôi tin vào nó".</p>
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Minh bạch tuyệt đối</div>
+      <p class="principle-text">Luôn khai báo rõ ràng phần nào, công cụ AI nào đã được sử dụng trong mọi bài nộp — không có ngoại lệ.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <div class="principle-title">AI là công cụ, tôi là tác giả</div>
+      <p class="principle-text">Ý tưởng trung tâm và "cái tôi" của tác phẩm luôn là của tôi. AI chỉ hỗ trợ ngôn ngữ và chi tiết kỹ thuật.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Kiểm chứng trước khi tin</div>
+      <p class="principle-text">Không sử dụng thông tin từ AI mà không tự kiểm tra với các nguồn tài liệu gốc. AI có hiện tượng "hallucination".</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">04</div>
+      <div class="principle-title">Bảo vệ quyền riêng tư</div>
+      <p class="principle-text">Tuyệt đối không đưa dữ liệu cá nhân, bảo mật, hoặc nhạy cảm vào bất kỳ hệ thống AI nào.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Luyện tập tư duy độc lập</div>
+      <p class="principle-text">Tự làm bản nháp đầu tiên trước khi dùng AI để cải thiện — không lấy AI làm điểm khởi đầu.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">06</div>
+      <div class="principle-title">Dùng AI để học sâu hơn</div>
+      <p class="principle-text">Sử dụng AI như "Socratic tutor" — đặt câu hỏi để tôi tự trả lời, thay vì chỉ cung cấp đáp án.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">07</div>
+      <div class="principle-title">Cập nhật liên tục chuẩn mực</div>
+      <p class="principle-text">Chủ động theo dõi các quy định mới, chuẩn mực đạo đức AI trong học thuật. Đạo đức là quá trình liên tục.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section id="reflection">
+  <div class="section-label">Tổng kết & Phản tư</div>
+  <div class="reflection-grid">
+    <div>
+      <h2 class="reflection-heading fade-in">15 tuần, một sự trưởng thành hoàn toàn</h2>
+
+      <div class="growth-block fade-in">
+        <div class="growth-label">Sự thay đổi #1 — Cách tiếp cận AI</div>
+        <div class="growth-before">"Làm sao để ChatGPT giúp tôi hoàn thành bài tập nhanh nhất?"</div>
+        <div class="growth-after">"Làm sao để sử dụng ChatGPT để tôi hiểu sâu hơn chủ đề này?"</div>
+      </div>
+
+      <div class="growth-block fade-in">
+        <div class="growth-label">Sự thay đổi #2 — Đánh giá thông tin</div>
+        <div class="growth-before">"Google kết quả thứ nhất → OK, dùng cái này."</div>
+        <div class="growth-after">"Ai viết? Có uy tín không? Có bias nào không? Còn liên quan không?"</div>
+      </div>
+
+      <div class="growth-block fade-in">
+        <div class="growth-label">Sự thay đổi #3 — Quan hệ với công nghệ</div>
+        <div class="growth-before">"AI quá mạnh, tôi không biết cách kiểm soát nó."</div>
+        <div class="growth-after">"AI là công cụ. Nó mạnh, nhưng tôi có thể sử dụng có trách nhiệm."</div>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <p style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-3); margin-bottom:1.25rem;">Mức độ trưởng thành</p>
+      <table class="skills-table">
+        <thead>
+          <tr>
+            <th>Lĩnh vực</th>
+            <th style="text-align:right">Đánh giá</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Quản lý dữ liệu & tệp tin</td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>Tìm kiếm & đánh giá phê phán</td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>Prompt Engineering</td><td><span class="stars">★★★★</span></td></tr>
+          <tr><td>Quản lý dự án & cộng tác</td><td><span class="stars">★★★★★</span></td></tr>
+          <tr><td>Sáng tạo nội dung số</td><td><span class="stars">★★★★</span></td></tr>
+          <tr><td>Đạo đức & trách nhiệm AI</td><td><span class="stars">★★★★★</span></td></tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:2rem;">
+        <p style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-3); margin-bottom:1rem;">Định hướng tương lai</p>
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <div style="padding:0.75rem 1rem; background:var(--accent-2-light); border-left:2px solid var(--accent-2); font-size:0.88rem; color:var(--ink-2);">
+            <strong>Ngắn hạn:</strong> Áp dụng 7 nguyên tắc vào mọi môn học, học Python cho Data Science
+          </div>
+          <div style="padding:0.75rem 1rem; background:var(--accent-light); border-left:2px solid var(--accent); font-size:0.88rem; color:var(--ink-2);">
+            <strong>Trung hạn:</strong> Khóa học Responsible AI, thực tập công ty tech, viết blog AI ethics
+          </div>
+          <div style="padding:0.75rem 1rem; background:var(--bg); border-left:2px solid var(--border); font-size:0.88rem; color:var(--ink-2);">
+            <strong>Dài hạn:</strong> Data Scientist / AI Product Manager, whitepaper AI có trách nhiệm Việt Nam
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote class="quote-text">"Công nghệ mạnh mẽ nhất không phải là AI, mà là khả năng đưa ra quyết định đúng đắn khi chẳng ai đang nhìn."</blockquote>
+  <p class="quote-source">Nguyễn Đức Toàn — Bài học từ Bài 6</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Nguyễn Đức Toàn</div>
+    <div class="footer-info" style="margin-top:0.5rem;">Khoa học Dữ liệu & Trí tuệ nhân tạo<br>UET — Đại học Quốc gia Hà Nội</div>
+  </div>
+  <div class="footer-info" style="text-align:right;">
+    Môn học: Nhập môn Công nghệ Số &amp; Ứng dụng AI<br>
+    Học kỳ 2024–2025<br>
+    <span style="color:#4A3D2E; margin-top:0.25rem; display:block;">Portfolio được xây dựng với sự hỗ trợ của AI</span>
+  </div>
+</footer>
+
+<script>
+function toggleDetail(e, id) {
+  e.preventDefault();
+  const panel = document.getElementById(id);
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.detail-panel.open').forEach(p => p.classList.remove('open'));
+  if (!isOpen) {
+    panel.classList.add('open');
+    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+}
+
+function closeDetail(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
